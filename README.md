@@ -14,12 +14,18 @@ network, which is the point if your school's usual converter sites are blocked.
 - Video: MP4, WebM, MOV, AVI, animated GIF, or extract just the audio track
 - YouTube Viewer: paste a link and watch it right there, via YouTube's own embedded player
 - Images: PNG, JPG, WebP, BMP, ICO, with optional resizing/quality control
+- HEIC/HEIF (iPhone photos) → JPG/PNG
+- SVG → PNG/JPG (rasterize a vector image at any size)
 - Markdown ⇄ HTML, CSV ⇄ JSON, JSON ⇄ YAML
-- Images/Text → PDF, and PDF → Images (page by page)
+- Spreadsheet (.xlsx/.xls/.ods/.csv) ⇄ CSV/JSON, and build a new .xlsx from CSV/JSON
+- Word .docx → plain text or HTML
+- Images/Text → PDF, PDF → Images (page by page), PDF → Text, and Merge/Split PDFs
 - Zip files together / unzip and browse a `.zip`
 
 **Handy tools**
 - Unit converter, number base converter (bin/oct/dec/hex)
+- Roman numeral ⇄ number, fraction ⇄ decimal ⇄ percent
+- Unix timestamp ⇄ human-readable date
 - Word & character counter, text case converter, diff checker
 - JSON formatter/validator, Base64 and URL encode/decode
 - SHA-1/256/384/512 hash generator (text or file)
@@ -63,6 +69,8 @@ domains.
   simple and dependency-light.
 - Audio/video conversion: [`@ffmpeg/ffmpeg`](https://github.com/ffmpegwasm/ffmpeg.wasm) (WebAssembly build of ffmpeg, single-threaded core — no special server headers required).
 - PDF creation: [`pdf-lib`](https://pdf-lib.js.org/); PDF rendering: [`pdfjs-dist`](https://mozilla.github.io/pdf.js/).
-- Images: Canvas API, plus small hand-rolled BMP/ICO encoders.
+- Images: Canvas API, plus small hand-rolled BMP/ICO encoders; HEIC decoding via [`heic2any`](https://github.com/alexcorvi/heic2any).
 - Archives: [`jszip`](https://stuk.github.io/jszip/).
 - CSV: [`papaparse`](https://www.papaparse.com/); YAML: [`js-yaml`](https://github.com/nodeca/js-yaml); Markdown: [`marked`](https://marked.js.org/) + [`turndown`](https://github.com/mixmark-io/turndown).
+- Spreadsheets: [SheetJS](https://sheetjs.com/) `xlsx` — installed from SheetJS's own CDN tarball rather than the npm registry, since the npm-published build has unpatched vulnerabilities the project only fixes in its own distribution.
+- Word docs: [`mammoth`](https://github.com/mwilliamson/mammoth.js) (docx → HTML/text; doesn't support the legacy .doc format).
