@@ -1,7 +1,10 @@
 import * as pdfjsLib from "pdfjs-dist";
 import { el, card, makeDropzone, outputLink, formatBytes, readFileAsArrayBuffer } from "../helpers.js";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `${location.origin}/pdfjs/pdf.worker.min.mjs`;
+// Resolved against document.baseURI (not location.origin) so this still
+// works when the site is hosted under a subpath, e.g. GitHub Pages project
+// sites at /convert/.
+pdfjsLib.GlobalWorkerOptions.workerSrc = new URL("pdfjs/pdf.worker.min.mjs", document.baseURI).href;
 
 export function render(container) {
   let currentFile = null;

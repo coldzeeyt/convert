@@ -3,16 +3,19 @@ import { toBlobURL, fetchFile } from "@ffmpeg/util";
 
 let ffmpegPromise = null;
 
-// Loaded from /ffmpeg/ which is served from this same origin (no CDN, works
-// even on networks that block third-party sites) — see public/ffmpeg.
+// Loaded from ./ffmpeg/ relative to wherever this page is hosted (no CDN,
+// works even on networks that block third-party sites, and works whether
+// the site lives at a domain root or a subpath like /convert/) — see
+// public/ffmpeg. Resolved against document.baseURI rather than
+// location.origin so it still works under a GitHub Pages project subpath.
 export function getFFmpeg(onLog) {
   if (!ffmpegPromise) {
     ffmpegPromise = (async () => {
       const ffmpeg = new FFmpeg();
       if (onLog) ffmpeg.on("log", ({ message }) => onLog(message));
-      const base = `${location.origin}/ffmpeg`;
-      const coreURL = await toBlobURL(`${base}/ffmpeg-core.js`, "text/javascript");
-      const wasmURL = await toBlobURL(`${base}/ffmpeg-core.wasm`, "application/wasm");
+      const base = new URL("ffmpeg/", document.baseURI).href;
+      const coreURL = await toBlobURL(`${base}ffmpeg-core.js`, "text/javascript");
+      const wasmURL = await toBlobURL(`${base}ffmpeg-core.wasm`, "application/wasm");
       await ffmpeg.load({ coreURL, wasmURL });
       return ffmpeg;
     })();
