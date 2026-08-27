@@ -12,6 +12,7 @@ network, which is the point if your school's usual converter sites are blocked.
 **Converters**
 - Audio: MP3, WAV, OGG, FLAC, M4A/AAC, Opus
 - Video: MP4, WebM, MOV, AVI, animated GIF, or extract just the audio track
+- YouTube Viewer: paste a link and watch it right there, via YouTube's own embedded player
 - Images: PNG, JPG, WebP, BMP, ICO, with optional resizing/quality control
 - Markdown ⇄ HTML, CSV ⇄ JSON, JSON ⇄ YAML
 - Images/Text → PDF, and PDF → Images (page by page)
@@ -29,9 +30,10 @@ network, which is the point if your school's usual converter sites are blocked.
 
 **Not included, on purpose:** a YouTube downloader. Ripping video off
 YouTube breaks its Terms of Service and can be copyright infringement — the
-"YouTube → MP4" entry in the app explains this and points to legitimate
-alternatives (converting a file you already legally have, official offline
-downloads, teacher-provided copies, etc).
+YouTube Viewer streams videos through YouTube's own embedded player instead
+(nothing is downloaded or saved), and explains this plus points to
+legitimate alternatives for offline copies (a file you already legally
+have, official offline downloads, teacher-provided copies, etc).
 
 ## Running it locally
 

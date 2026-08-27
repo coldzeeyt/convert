@@ -7,7 +7,7 @@ const NAV = [
     items: [
       { id: "audio", icon: "🎵", label: "Audio Converter", load: () => import("./converters/audio.js") },
       { id: "video", icon: "🎬", label: "Video Converter", load: () => import("./converters/video.js") },
-      { id: "youtube", icon: "▶️", label: "YouTube → MP4", load: () => import("./converters/youtubeNote.js") },
+      { id: "youtube", icon: "▶️", label: "YouTube Viewer", load: () => import("./converters/youtubeViewer.js") },
     ],
   },
   {
@@ -50,7 +50,7 @@ const ALL_ITEMS = NAV.flatMap((g) => g.items);
 const DESCRIPTIONS = {
   audio: "Convert between MP3, WAV, OGG, FLAC, M4A and Opus, entirely in your browser.",
   video: "Convert between MP4, WebM, MOV, AVI and GIF, or pull the audio out of a video.",
-  youtube: "Why this isn't a YouTube downloader, and what to use instead.",
+  youtube: "Paste a YouTube link to watch it right here, using YouTube's own embedded player.",
   image: "Convert between PNG, JPG, WebP, BMP and ICO, with optional resizing.",
   "markdown-html": "Turn Markdown into HTML or HTML back into Markdown, with a live preview.",
   "csv-json": "Convert spreadsheet-style CSV data to JSON and back.",
